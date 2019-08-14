@@ -1,0 +1,11 @@
+#foot{background: #383838; clear: both;}
+#foot p font{color: #FFCD1E;}
+#foot p{text-align: center;}
+#foot a{text-decoration: none; color: #B0CCCC;}
+#foot a:hover{color: #FFCD1E;}
+#foot .foot_text1{color: #ffffff; font-size: 45px; height: 120px; line-height: 120px; width: 850px; border-bottom: 1px solid #4C4C4C; margin: 0 auto;}
+#foot .foot_text2{color: #B0CCCC; font-size: 18px; height: 40px; line-height: 40px;}
+#foot .foot_text3{color: #B0CCCC; font-size: 18px; height: 50px; line-height: 50px; width: 550px; border-top: 1px dashed #4C4C4C; margin: 0 auto;}
+#foot .foot_text4,.foot_text5,.foot_text6{color: #B0CCCC; font-size: 12px; height: 20px; line-height: 20px;}
+#foot .foot_text4{width: 450px; border-top: 1px dashed #4C4C4C; margin: 0 auto; height: 40px; line-height: 40px; padding-top: 10px;}
+#foot .foot_text6{padding-bottom: 50px;}

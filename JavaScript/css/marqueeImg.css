@@ -1,0 +1,25 @@
+#marqueeImg {
+	background: #FFFFFF;
+	overflow: hidden;
+	border: 1px dashed #CCC;
+	width: 100%
+}
+
+#marqueeImg img {
+	border: 2px solid #F2F2F2;
+	width: 275px;
+	height: 184px;
+}
+
+#indMarquee {
+	float: left;
+	width: 1000%;
+}
+
+#marqueeImg1 {
+	float: left;
+}
+
+#marqueeImg2 {
+	float: left;
+}

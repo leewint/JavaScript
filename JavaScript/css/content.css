@@ -1,0 +1,65 @@
+#content1{width: 1200px; height: 266px; margin: 0 auto; background: #DEDEDE;}
+#content1 .sideLeft{width: 300px; height: 266px; background: #002400; float: left;}
+#content1 .leftTop{width:100%; background:#339999;}
+#content1 .leftTop p{text-align: center; color: #FFFFFF; height: 40px; line-height: 40px; font-size: 22px;}
+#content1 .leftTop #ull{border: 5px #339999 solid; border-top: 0px;}
+#content1 .leftTop #ulContent{overflow:hidden; background: #EEFFEE; height:211px; width:280px; padding:5px;}
+#content1 .leftTop ul a{text-decoration: none; color: #000000;}
+#content1 .leftTop ul a:hover{color: #FFCD1E; text-decoration: underline;}
+#content1 .sideMiddle{width: 600px; height: 266px; background: #FFFFFF; float: left;}
+#content1 .middleTop{width:450px; height:254px; border:1px solid #000; margin:10px auto 0;}
+#content1 .sideRight{width: 300px; height: 266px; background: #FAF7F2; float: left;}
+#content1 .rightTop{width: 100%; background: #FFFFCC; padding: 10px 0;}
+#content1 .rightTop p{text-align: center; width: 100%;}
+#content1 .rightTop .canvas{width: 298px;  border: 1px dotted #ccc; margin: 5px 0;}
+#content1 .rightTop #myCanvas{margin:0 75px;}
+#content2{width: 1200px; height: 590px; margin: 50px auto 0; background: #FFFFFF;}
+#content2 .up p{font-size: 26px; height: 50px; line-height: 50px; border-bottom: 2px solid #000000; margin-bottom: 10px;}
+#content2 .up font{font-size: 16px; color: #C9B9B9;}
+#content2 .up .img{width: 300px; float: left; text-align: center;}
+#content2 .down{clear: both; padding-top: 20px;}
+#content2 .down p{font-size: 26px; text-align: right; height: 50px; line-height: 50px; border-bottom: 2px solid #000000; margin-bottom: 10px;}
+#content2 .down font{font-size: 16px; color: #C9B9B9;}
+#content2 .down .img{width: 300px; float: left; text-align: center;}
+#content3 {
+	width: 800px;
+	height: 270px;
+	margin: 0 auto 20px;
+	FONT: 12px/1.5 Arial, "΢���ź�", sans-serif;
+}
+
+.today_nav {
+	float: right;
+	margin-right: 20px;
+}
+
+.today_nav li {
+	width: 70px;
+	text-align: center;
+	float: left;
+	margin-left: 15px;
+}
+
+.today_nav li:hover {
+	background: #eb8219;
+}
+
+.today_nav li.on {
+	background: #eb8219;
+}
+
+.today_main {
+	padding: 10px;
+	width: 780px;
+}
+
+.today_main ul {
+	width: 780px;
+}
+
+.today_main ul li {
+	border-top: 1px dotted #d4d4d4;
+	height: 60px;
+	margin: 0 0 10px 0;
+}
+#content4{ width: 100%; height: 30px; text-align: center;}

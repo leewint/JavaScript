@@ -1,0 +1,436 @@
+<link rel="shortcut icon" href="img/bitbug_favicon.ico" />
+<div id="ad" style="position:absolute; z-index:10;">
+	<a href="#"><img src="img/float-img.jpg" width="310px" height="180px" /></a>
+	<div onClick="hidead();" style="font-size: 9pt; cursor: hand;" align="right">
+		<img src="img/close.jpg" style="position: relative; top:-180px;" />
+	</div>
+</div>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>小夏婚纱摄影官网</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/foot.css" />
+	<link rel="stylesheet" href="css/marqueeImg.css" />
+	<link rel="stylesheet" href="css/nav.css" />
+	<link rel="stylesheet" href="css/content.css" />
+	<!--content3-->
+	<link href="css/origin.css" type="text/css" rel="stylesheet" />
+	<link href="css/index.css" type="text/css" rel="stylesheet" />	
+	<style type="text/css">
+		*{margin: 0; padding: 0;}
+		#head{text-align: center; background: #dedede;}
+	</style>
+	<script>
+		function drawclock() {
+			clock();
+			setInterval(clock, 1000); ///每一秒钟重新绘制一次
+		};
+		function clock() {
+			///得到时分秒
+			var now = new Date();
+			var sec = now.getSeconds();
+			var min = now.getMinutes();
+			var hour = now.getHours();
+			hour = hour >= 12 ? hour - 12 : hour;
+			var c = document.getElementById("myCanvas").getContext("2d");
+		
+			c.save(); //清除画布，需注意高宽度的设置，否则画布将清除一半，后面的会不停地重合
+			c.clearRect(0, 0, 150, 150); ///初始化画布
+			c.translate(75, 75);
+			c.scale(0.4, 0.4);
+			c.rotate(-Math.PI / 2);
+			//画布选择角度
+		
+			c.strokeStyle = "black"; //设置路径颜色
+			c.fillStyle = "black";
+			c.lineWidth = 8; //设置线的宽度
+			c.lineCap = "round"; //设置线段的末端如何绘制
+		
+			c.save();
+			c.beginPath();
+			for(var i = 0; i < 12; i++) { ///小时刻度
+				c.rotate(Math.PI / 6);
+				c.moveTo(100, 0);
+				c.lineTo(120, 0);
+			}
+			c.stroke();
+			c.restore();
+			c.save();
+		
+			c.lineWidth = 5;
+			c.beginPath();
+			for(var i = 0; i < 60; i++) { ///分钟刻度
+				if(i % 5 != 0) {
+					c.moveTo(117, 0);
+					c.lineTo(120, 0);
+				}
+				c.rotate(Math.PI / 30);
+			}
+			c.stroke();
+			c.restore();
+			c.save();
+		
+			c.rotate((Math.PI / 6) * hour + (Math.PI / 360) * min + (Math.PI / 21600) * sec); ///画上时针
+			c.lineWidth = 14;
+			c.beginPath();
+			c.moveTo(-20, 0);
+			c.lineTo(75, 0);
+			c.stroke();
+			c.restore();
+			c.save();
+		
+			c.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec); ///分针
+			c.strokeStyle = "#29A8DE";
+			c.lineWith = 10;
+			c.beginPath();
+			c.moveTo(-28, 0);
+			c.lineTo(102, 0);
+			c.stroke();
+			c.restore();
+			c.save();
+		
+			c.rotate(sec * Math.PI / 30); ///秒针
+			c.strokeStyle = "#D40000";
+			c.lineWidth = 6;
+			c.beginPath();
+			c.moveTo(-30, 0);
+			c.lineTo(83, 0);
+			c.stroke();
+			c.restore();
+			c.save();
+			///表框      
+			c.lineWidth = 14;
+			c.strokeStyle = "#325FA2";
+			c.beginPath();
+			c.arc(0, 0, 142, 0, Math.PI * 2, true);
+			c.stroke();
+			c.restore();
+			c.restore(); //返回两次，因为要返回到第一个save()的状态，即初始化状态。
+		}
+		function time() {
+			var now = new Date();
+			var hour = now.getHours();
+			var minutes = now.getMinutes();
+			var second = now.getSeconds();
+			if(minutes < 10)
+				minutes = "0" + minutes;
+			if(second < 10)
+				second = "0" + second;
+			times.innerHTML = hour + ":" + minutes + ":" + second; //innerHTML 属性设置或返回表格行的开始和结束标签之间的HTML。
+			setTimeout("time()", 1000);
+		}
+		function makeMenu() {
+			var items = document.getElementById("nav").getElementsByTagName("li");
+				for(var i = 0; i < items.length; i++) {
+					items[i].onmouseover = function() {
+						this.className = "mouseover";
+					}
+					items[i].onmouseout = function() {
+						this.className = "";
+					}
+				}
+		}
+		function myMain() {
+			makeMenu();
+			drawclock();
+			time();
+		}
+	</script>
+	<script type="text/javascript" src="js/jquery-1.7.min.js" ></script>
+	<body onLoad="myMain()">
+		<div id="head">
+			<a href="index.html" title="小夏婚纱摄影官网"><img src="img/logo.jpg" /></a>
+		</div>
+		
+		<div id="nav">
+			<ul id="menu">
+				<li><a href="#">首页</a></li>
+				<li><a href="#">客照</a></li>
+				<li><a href="#">至IN图库</a>
+					<ul>
+						<li><a href="#">品牌赏析</a></li>
+						<li><a href="#">明星范</a></li>
+						<li><a href="#">异国风情</a></li>
+						<li><a href="#">真人秀</a></li>
+					</ul>
+				</li>
+				<li><a href="#">使用帮助</a>
+					<ul>
+						<li><a href="#">新手指南</a></li>
+						<li><a href="#">正品保障</a></li>
+						<li><a href="#">优惠政策</a></li>
+						<li><a href="#">联系客服</a></li>
+						<li><a href="#">招商加盟</a></li>
+					</ul>
+				</li>
+				<li><a href="#">售后服务</a>
+					<ul>
+						<li><a href="#">用户协议</a></li>
+						<li><a href="#">退换货政策</a></li>
+						<li><a href="#">退换货流程</a></li>
+						<li><a href="#">退款说明</a></li>
+					</ul>
+				</li>
+				<li><a href="#">支付配送</a>
+					<ul>
+						<li><a href="#">在线支付</a></li>
+						<li><a href="#">货到付款</a></li>
+						<li><a href="#">银行转账</a></li>
+						<li><a href="#">退款说明</a></li>
+					</ul>
+				</li>
+				<li><a href="#">量身定制</a>
+					<ul>
+						<li><a href="#">关于定制</a></li>
+						<li><a href="#">量体参考</a></li>
+						<li><a href="#">常见问题</a></li>
+					</ul>
+				</li>
+				<li><a href="#">体验试衣</a></li>
+			</ul>
+		</div>
+		
+		<div id="content1">
+			<div class="sideLeft">
+				<div class="leftTop">
+					<p>最新发布</p>
+					<div id="ull">
+						<ul id="ulContent">
+							<div id="liPanel">
+								<li><a href="#">&bull;10月强档，小夏婚纱最新推出年度超惠三亚旅拍</a></li>
+								<li><a href="#">&bull;小夏婚纱推出体验店试衣定制</a></li>
+								<li><a href="#">&bull;无锡市拍婚纱照景点有哪些？要多少钱？</a></li>
+								<li><a href="#">&bull;小夏婚纱普吉岛婚纱照的完美体验</a></li>
+								<li><a href="#">&bull;普吉岛旅拍婚纱照选择小夏婚纱是最正确的决定</a></li>
+								<li><a href="#">&bull;小夏婚纱照的一路惊喜</a></li>
+								<li><a href="#">&bull;完美婚纱照是怎么修掉瑕疵的</a></li>
+								<li><a href="#">&bull;小夏大理婚纱照的正确决定</a></li>
+								<li><a href="#">&bull;几月份去重庆婚纱摄影好，小夏婚纱照攻略</a></li>
+								<li><a href="#">&bull;小夏婚纱品牌入驻东北长春店某某国际</a></li>
+							</div>
+							<div id="liAlternative"></div>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="sideMiddle">
+				<div class="middleTop">
+					<script type=text/javascript>
+						imgUrl1 = "img/adimg1.jpg";
+						imgtext1 = "追梦旅行";
+						imgLink1 = escape("#");
+						imgUrl2 = "img/adimg2.jpg";
+						imgtext2 = "一见倾心";
+						imgLink2 = escape("#");
+						imgUrl3 = "img/adimg3.jpg";
+						imgtext3 = "相思赋予谁";
+						imgLink3 = escape("#");
+						imgUrl4 = "img/adimg4.jpg";
+						imgtext4 = "午后蜜旅";
+						imgLink4 = escape("#");
+						var focus_width = 450 //图片的宽度
+						var focus_height = 234 //图片的高度
+						var text_height = 20 //文字的高度
+						var swf_height = focus_height + text_height //播放器的高度=图片的高度+文字的高度
+						var pics = imgUrl1 + "|" + imgUrl2 + "|" + imgUrl3 + "|" + imgUrl4
+						var links = imgLink1 + "|" + imgLink2 + "|" + imgLink3 + "|" + imgLink4
+						var texts = imgtext1 + "|" + imgtext2 + "|" + imgtext3 + "|" + imgtext4
+						document.write('<object ID="focus_flash" classid="clsid:d27cdb6e-ae6d-11cf-96b8-44553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="' + focus_width + '" height="' + swf_height + '">');
+						document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="playswf.swf"><param name="quality" value="high"><param name="bgcolor" value="#fff">');
+						document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+						document.write('<param name="FlashVars" value="pics=' + pics + '&links=' + links + '&texts=' + texts + '&borderwidth=' + focus_width + '&borderheight=' + focus_height + '&textheight=' + text_height + '">');
+						document.write('<embed ID="focus_flash" src="swf/playswf.swf" wmode="opaque" FlashVars="pics=' + pics + '&links=' + links + '&texts=' + texts + '&borderwidth=' + focus_width + '&borderheight=' + focus_height + '&textheight=' + text_height + '" menu="false" bgcolor="#c5c5c5" quality="high" width="' + focus_width + '" height="' + swf_height + '" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />');
+						document.write('</object>');
+					</script>
+				</div>
+			</div>
+			
+			<div class="sideRight">
+				  <div class="rightTop">
+				  	<p id="date"></p>
+				  	<div class="canvas">
+		         		<canvas id="myCanvas" width="150px" height="150px">你的浏览器不支持canvas</canvas>
+		          	</div>
+		          	<p id="times"></p>
+		          	<p id="warn"></p>
+				  </div>
+			</div>
+		</div>
+		
+		<div id="content2">
+			<div class="up">
+				<p>鼓浪屿基地样片欣赏<font>PHOTOGRAPHY</font></p>
+				<div class="img"><a href="#"><img src="img/img1.jpg"/></a><br />碧水蓝天</div>
+				<div class="img"><a href="#"><img src="img/img2.jpg"/></a><br />绿色仙人掌</div>
+				<div class="img"><a href="#"><img src="img/img3.jpg"/></a><br />泳池之恋</div>
+				<div class="img"><a href="#"><img src="img/img4.jpg"/></a><br />春色满园</div>
+			</div>
+			<div class="down">
+				<p><font>PHOTOGRAPHY</font>三亚样片欣赏</p>
+				<div class="img"><a href="#"><img src="img/img5.jpg"/></a><br />蔚蓝大海</div>
+				<div class="img"><a href="#"><img src="img/img6.jpg"/></a><br />激情泳池</div>
+				<div class="img"><a href="#"><img src="img/img7.jpg"/></a><br />青青草地</div>
+				<div class="img"><a href="#"><img src="img/img8.jpg"/></a><br />婚礼殿堂</div>
+			</div>
+		</div>
+		
+		<div id="content3">
+			<div class="slierbar home_links today_important">
+			   <div class="today_topbg">
+				    <h4>客户评价</h4>
+				    <ul class="today_nav">
+				      <li class="on">QQ</li>
+				      <li>微博</li>
+				      <li>微信</li>
+				      <li>天猫</li>
+				    </ul>
+				</div>
+  				<div class="today_main">
+				    <ul>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head1.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">先从拍摄基地说起吧,风是真的超级漂亮，无敌海景，真的觉得伊莉莎在各方面都很细心,从选服装到拍摄，首先很感谢化妆师翠老师,人漂亮,化妆也超级漂亮,还有摄影师张摄要求比较严格，比较负责任,还有助理小丁都跟着我们跑了一整天，都特别辛苦,还好偷快的结束了拍摄，真的是又热又累又幸福又充实的一天!</a></p>
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head2.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">谢谢小夏婚纱摄影，服务非常周到，态度也很好，给我们一次美好的回忆，和你们相处很愉快</a></p>
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head3.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">选择小夏真心没错！感谢造型师细心帮我设计独一无二的造型，感谢摄影师耐心专业的拍摄，感谢摄影师助理和造型师助理跑来跑去微我们奔波，照片美美哒，太喜欢了，还多加了一些，期待...</a></p>
+				        	</div>
+				      	</li>
+					</ul>
+				    <ul style="display: none">
+				        <li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head4.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">服装很多，很好，摄影师的技术没得说，掌握的角度也是特别不错的。成品效果很不错，特别是服务太贴心了，非常的有责任心，真的选对了，强烈推荐哦！</a></p>
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head5.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">婚纱很漂亮，化妆师技巧很好哦，我都不知道原来我媳妇儿可以这么漂亮，太爽了。感谢你们在厦门热情的接待,这里的服务非常好,每个员工都很亲切,没有后期消费，每个拍摄过程都很满意，...</a></p>
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head6.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">摄影师的想法很新颖，有创意，非常喜欢。人生难得一次婚纱照，就应该这样美美的，很满意这次婚纱的拍照，拍摄技术很好 清晰，婚纱店服务很好 很有耐心，非常满意 拍得很真实清晰自然，有需要的亲们，就放心的来这家婚纱店拍，真的很不错，好评推荐</a></p>
+				        	</div>
+				      	</li>
+				    </ul>
+				    <ul style="display: none">
+				        <li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head7.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">摄影师的想法很新颖，有创意，非常喜欢。人生难得一次婚纱照，就应该这样美美的，跟别人的也不一样</a></p>
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head8.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">婚纱照片拿到了!真的感谢伊莉莎这个女孩销售代表!开始一直都在跟进我的婚纱照拍摄情况!总体来说感谢小夏婚纱所有的工作人员!小夏婚纱我之前就听我朋友说过!他们也在那里拍摄的!今天我终于拍摄完了，一套下来服务真的跟舒心!他们的工作人员很好相处!从化妆到拍摄还有选照片!从来没有我担心过的!感谢小夏所有的工作人员! </a></p>
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head9.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">很满意这次婚纱的拍照,拍摄技术很好清晰,婚纱店服务很好很有耐心，非常满意拍得很真实清晰自然,有需要的亲们，就放心的来这家婚纱店拍，真的很不错,好评推荐</a></p>
+				        	</div>
+				      	</li>
+				    </ul>
+				    <ul style="display: none">
+				       <li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head10.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+				        		<p><a href="">服装很多,很好,摄影师的技术没得说，掌握的角度也是特别不错的。成品效果很不错,特别是服务太贴心了,非常的有责任心，真的选对了，强烈推荐哦!</a></p>
+					        	
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head11.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">摄影师的想法很新颖，有创意，非常喜欢。人生难得一次婚纱照，就应该这样美美的，不错,拍出来的很好看,摄影师人也很好,老问我们喜欢不喜欢,不喜欢再换其他风格介绍给我们,很耐心,以后还会介绍朋友来照顾你们家,照的照片好看,服务也很好</a></p>
+				        	</div>
+				      	</li>
+				      	<li>
+				        	<div class="today_print">
+				        		<a href=""><img height="50" src="img/head12.jpg" width="50" /></a>
+				        	</div>
+				        	<div class="today_new">
+					        	<p><a href="">虽然评论有点晚,但真的很感谢小夏的服务态度和专业的摄影技术，感谢老师们的辛勤付出和对每个动作的精益求精:感谢化妆师为我们化妆和耐心的提醒;感谢对我们像亲人一般的照顾;感谢为我们做的各种服务保障。总之，真心的感谢所有人对我们的关心和帮助，给我们有了一种像家人一样的照顾，希望还有要拍婚纱照的朋友可以选择米兰店，因为他们真的很热情、专业、体贴。</a></p>
+				        	</div>
+				      	</li>
+				    </ul>
+  				</div>
+			</div>
+		</div>
+		
+		<div id="content4">
+			<img src="img/foot.jpg" />
+		</div>
+		
+		<div id="marqueeImg">
+			<div id="indMarquee">
+				<div id="marqueeImg1">
+					<a href="#"><img src="img/marqueeimg1.jpg" border="0" /></a>
+					<a href="#"><img src="img/marqueeimg2.jpg" border="0" /></a>
+					<a href="#"><img src="img/marqueeimg3.jpg" border="0" /></a>
+					<a href="#"><img src="img/marqueeimg4.jpg" border="0" /></a>
+					<a href="#"><img src="img/marqueeimg5.jpg" border="0" /></a>
+					<a href="#"><img src="img/marqueeimg6.jpg" border="0" /></a>
+					<a href="#"><img src="img/marqueeimg7.jpg" border="0" /></a>
+					<a href="#"><img src="img/marqueeimg8.jpg" border="0" /></a>
+				</div>
+				<div id="marqueeImg2"></div>
+			</div>
+		</div>
+
+		<div id="foot">
+			<p class="foot_text1">最 <font>温 暖 </font>人 心 的，莫 过 于 <font>陪 伴</font>。</p>
+			<p class="foot_text2"><a href="#">青岛站</a> | <a href="#">丽江站</a> | <a href="#">厦门站</a> | <a href="#">婺源站</a> | <a href="#">三亚站</a></p>
+			<p class="foot_text2"><a href="#">南昌</a> | <a href="#">上饶</a> | <a href="#">新余</a> | <a href="#">萍乡</a> | <a href="#">上栗</a> | <a href="#">吉安 </a> | <a href="#">永丰</a> | <a href="#">兴国</a> | <a href="#">宁都</a>  | <a href="#">修水</a> | <a href="#">湘潭</a> | <a href="#">布拉格</a></p>
+			<p class="foot_text3">全国免费咨询热线：<font>520-520-1314</font> (在线时间：每天08:00-20:00)</p>
+			<p class="foot_text4"><a href="#">首页</a> - <a href="#">公司简介</a> - <a href="#">联系我们</a> - <a href="#">客照欣赏</a></p>
+			<p class="foot_text5"><a href="#">本站如有引用文章、图片等设计版权问题，请速与我们联系</a></p>
+			<p class="foot_text6">©Lee 皖ICP备5201314号</p>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/marqueeImg.js" ></script>
+	<script type="text/javascript" src="js/hidead.js" ></script>
+	<script type="text/javascript" src="js/time.js" ></script>
+	<script type="text/javascript" src="js/leftTop.js" ></script>
+	<script type="text/javascript" src="js/content3.js" ></script>
+</html>
